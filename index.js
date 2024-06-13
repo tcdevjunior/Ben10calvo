@@ -6,6 +6,7 @@ var divResposta = document.getElementById("resposta")
 var divContador = document.getElementById("contador")
 var numero_sorteado = sorteiaNumero(1, 100);
 var contador = 0
+console.log(numero_sorteado);
 function verificaNumero(chute, numero_sorteado) {
 
     divResposta.innerHTML = "";
@@ -26,12 +27,15 @@ function verificaNumero(chute, numero_sorteado) {
         `}
 }
 
+
+var listaDeJogadores = []
+
 function enter() {
     var chute = document.getElementById("chute").value
 
     contador++
 
-    while (contador <= 5) {
+    while (contador <= 10 && chute != numero_sorteado) {
         verificaNumero(chute, numero_sorteado)
 
         divContador.innerHTML = ""
@@ -45,11 +49,31 @@ function enter() {
     }
 
     divResposta.innerHTML = ""
+    let nome = document.getElementById("nome").value
 
-    divResposta.innerHTML += `
-        <p>Perdeu! o número certo era ${numero_sorteado}
-    `
+    if (chute != numero_sorteado) {
+        divResposta.innerHTML += `
+            <p>Perdeu! o número certo era ${numero_sorteado}
+        `
+    } else {
+        listaDeJogadores.push({ nome, contador })
+
+        for (let i = 0; i < listaDeJogadores.length; i++) {
+            divTabela.innerHTML += `
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>${listaDeJogadores[i].nome}</th>
+                            <th>${listaDeJogadores[i].contador}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            `
+        }
+    }
+
+
 
     return false;
-    
+
 }
