@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
@@ -15,18 +15,30 @@
             <span>nome</span>
             <input type="text" name="nome" id="nome" class="input">
         </label>
-            
+
         <label for="chute">
-            <span>Tente acertar uma numero de 1 a 100</span>
-            <input type="number" name="chute" id="chute" class="input" placeholder="Escreva o número aqui">        
+            <span>Tente acertar uma numero de 1 a 5000</span>
+            <input type="number" name="chute" id="chute" class="input" placeholder="Escreva o número aqui">
         </label>
 
         <button type="submit">Confirmar</button>
+        <button type="button" onclick="geraNovoNumero()">Gerar outro numero</button>
     </form>
     <div id="resposta"></div>
     <div id="contador"></div>
-    
-    <div id="divTabela"></div>
+
+    <div id="container-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do jogador</th>
+                    <th>Quantidade de tentativas</th>
+                </tr>
+            </thead>
+            <tbody id="divTabela"></tbody>
+        </table>
+    </div>
+
 </body>
 
 </html>

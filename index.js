@@ -4,9 +4,11 @@ function sorteiaNumero(min, max) {
 
 var divResposta = document.getElementById("resposta")
 var divContador = document.getElementById("contador")
-var numero_sorteado = sorteiaNumero(1, 100);
+var numero_sorteado = sorteiaNumero(1, 5000);
 var contador = 0
+
 console.log(numero_sorteado);
+
 function verificaNumero(chute, numero_sorteado) {
 
     divResposta.innerHTML = "";
@@ -27,7 +29,6 @@ function verificaNumero(chute, numero_sorteado) {
         `}
 }
 
-
 var listaDeJogadores = []
 
 function enter() {
@@ -35,7 +36,7 @@ function enter() {
 
     contador++
 
-    while (contador <= 10 && chute != numero_sorteado) {
+    while (contador <= 20 && chute != numero_sorteado) {
         verificaNumero(chute, numero_sorteado)
 
         divContador.innerHTML = ""
@@ -72,8 +73,12 @@ function enter() {
         }
     }
 
-
-
     return false;
 
+}
+
+function geraNovoNumero() {
+    numero_sorteado = sorteiaNumero(1, 5000)
+    contador = 0
+    console.log(numero_sorteado)
 }
